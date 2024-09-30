@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 // initialize the scene
 const scene = new THREE.Scene()
@@ -15,10 +16,10 @@ scene.add(cubeMesh)
 
 // initialize the camera
 const camera = new THREE.PerspectiveCamera(
-  75, 
-  window.innerWidth / window.innerHeight,
-  0.1,
-  30)
+  75, //field of view
+  window.innerWidth / window.innerHeight, //aspect
+  0.1, //near
+  30) //far
 camera.position.z = 5
 
 // initialize the renderer
