@@ -30,20 +30,27 @@ const camera = new THREE.PerspectiveCamera(
 
 camera.position.z = 5;
 
+
 // initialize the renderer
 const canvas = document.querySelector("canvas.threejs");
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
 });
-//renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(window.innerWidth, window.innerHeight);
 
 //instantiate the controls
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 controls.autoRotate = true;
 
-const renderloop = () => {
+window.addEventListener('resize', () =>{
+  camera.aspect= window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix()
   renderer.setSize(window.innerWidth, window.innerHeight);
+
+})
+const renderloop = () => {
+  
   controls.update();
   renderer.render(scene, camera);
   window.requestAnimationFrame(renderloop);
