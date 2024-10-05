@@ -28,8 +28,9 @@ const camera = new THREE.PerspectiveCamera(
   50
 );*/
 
-camera.position.z = 5;
+camera.position.y = 5;
 
+console.log(cubeMesh.position.distanceTo(camera.position));
 
 // initialize the renderer
 const canvas = document.querySelector("canvas.threejs");
