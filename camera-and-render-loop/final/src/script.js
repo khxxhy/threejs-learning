@@ -16,7 +16,7 @@ cubeMesh3.position.x = -2;
 const cubeMesh4 = new THREE.Mesh(cubeGeometry, cubeMaterial);
 cubeMesh4.position.y = -1;
 
-cubeMesh.scale.setScalar(0.5)
+cubeMesh.scale.setScalar(0.25)
 
 const group = new THREE.Group();
 group.add(cubeMesh)
@@ -24,8 +24,8 @@ group.add(cubeMesh2)
 group.add(cubeMesh3)
 group.add(cubeMesh4)
 
-group.position.y = 2
-group.scale.setScalar(2)
+group.position.y = 1
+group.scale.setScalar(1)
 
 scene.add(group);
 
