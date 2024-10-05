@@ -35,8 +35,10 @@ camera.position.z = 5;
 const canvas = document.querySelector("canvas.threejs");
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
+  antialias: true //anti-staircase
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
+//renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)) //anti-stair-case
 
 //instantiate the controls
 const controls = new OrbitControls(camera, canvas);
