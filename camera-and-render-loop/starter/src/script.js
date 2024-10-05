@@ -18,7 +18,7 @@ const camera = new THREE.PerspectiveCamera(
   65, //field of view
   window.innerWidth / window.innerHeight, //aspect
   0.1, //near
-  30 //far
+  30 // far
 );
 
 /*const camera = new THREE.OrthographicCamera(
