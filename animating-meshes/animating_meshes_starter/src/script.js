@@ -40,8 +40,23 @@ window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
+//initialise the clock
+const clock = new THREE.Clock()
+let previousTime = 0;
+
 // render the scene
 const renderloop = () => {
+  const currentTime = clock.getElapsedTime()
+  const delta = currentTime - previousTime
+  previousTime = currentTime
+
+  cubeMesh.rotation.y += THREE.MathUtils.degToRad(1) * delta * 20
+
+  Math.sin(currentTime)
+
+  cubeMesh.scale.x = Math.sin(currentTime) 
+  cubeMesh.position.x = Math.sin(currentTime) 
+
   controls.update();
   renderer.render(scene, camera);
   window.requestAnimationFrame(renderloop);
