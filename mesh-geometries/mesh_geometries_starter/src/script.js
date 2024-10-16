@@ -9,8 +9,7 @@ const scene = new THREE.Scene();
 
 //create custom geometry
 const vertices = new Float32Array([
-0,0,0, 0,2,0, 2,0,0
-]);
+0,0,0, 0,2,0, 2,0,0]);
 const bufferAttribute = new THREE.BufferAttribute(vertices, 3)
 const geometry = new THREE.BufferGeometry ();
 geometry.setAttribute('position', bufferAttribute)
