@@ -10,34 +10,43 @@ const scene = new THREE.Scene();
 
 // initialize the geometry
 const geometry = new THREE.BoxGeometry(1, 1, 1);
+const torusKnotGeometry = new THREE.TorusKnotGeometry(0.5, 0.15, 100, 16);
 const planeGeometry = new THREE.PlaneGeometry(1,1);
 
 // initialize the material
-const material = new THREE.MeshBasicMaterial({
-});
+const material = new THREE.MeshStandardMaterial();
+material.shininess = 400;
 
-material.color = new THREE.Color("limeGreen");
+material.color = new THREE.Color('red');
 //material.opacity = 0.5;
 //material.transparent = true;
-material.side = 2 
-console.log(THREE.DoubleSide)
+ material.side = THREE.DoubleSide
 
 // initialize the mesh
 const mesh = new THREE.Mesh(geometry, material);
 
-const mesh2 = new THREE.Mesh(geometry, material);
+const mesh2 = new THREE.Mesh(torusKnotGeometry, material);
 mesh2.position.x = 1.5;
 
 const plane = new THREE.Mesh(planeGeometry, material);
 plane.position.x = -1.5;
 
-const fog = new THREE.Fog("white",1, 10)
-scene.fog = fog;
 
-scene.background = new THREE.Color('white');
+// const fog = new THREE.Fog("white",1, 10)
+// scene.fog = fog;
+
+// scene.background = new THREE.Color('white');
 scene.add(mesh);
 scene.add(mesh2);
 scene.add(plane);
+
+//initialize the lights
+const light = new THREE.AmbientLight(0xffffff, 0.5)
+scene.add(light)
+
+const pointLight = new THREE.PointLight(0xffffff, 10  )
+pointLight.position.set(2,2,1)
+scene.add(pointLight);
 
 // initialize the camera
 const camera = new THREE.PerspectiveCamera(
